@@ -11,8 +11,28 @@ var (
 	tengine = &testEngine{}
 )
 
+func init() {
+	filename := "../conf/controller_test.conf"
+	cfg, err := newConfigFromTomlFile(filename)
+	if err != nil {
+		panic(err)
+	}
+	tapp = newApp()
+	tc = tapp.Controller
+
+	if err := tc.Register(trpc); err != nil {
+		panic(err)
+	}
+	if err := tc.Register(tengine); err != nil {
+		panic(err)
+	}
+	if err := tapp.configure(cfg); err != nil {
+		panic(err)
+	}
+}
+
 func TestNewController(t *testing.T) {
-	filename := "conf/controller_test.conf"
+	filename := "../conf/controller_test.conf"
 	cfg, err := newConfigFromTomlFile(filename)
 	if err != nil {
 		t.Fatal(err)

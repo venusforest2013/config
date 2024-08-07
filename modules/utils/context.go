@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	app "gitlab.alibaba-inc.com/amap-aos-go/application"
+	app "github.com/venusforest2013/config/application"
 )
 
 func Module(ctx context.Context, name string) (app.Module, error) {

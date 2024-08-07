@@ -5,9 +5,9 @@ import (
 	"errors"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	app "gitlab.alibaba-inc.com/amap-aos-go/application"
-	"gitlab.alibaba-inc.com/amap-aos-go/modules/http"
-	"gitlab.alibaba-inc.com/amap-aos-go/modules/utils"
+	app "github.com/venusforest2013/config/application"
+	"github.com/venusforest2013/config/modules/http"
+	"github.com/venusforest2013/config/modules/utils"
 )
 
 var (

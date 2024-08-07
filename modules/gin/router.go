@@ -2,10 +2,9 @@ package gin
 
 import (
 	"github.com/gin-gonic/gin"
-	app "gitlab.alibaba-inc.com/amap-aos-go/application"
-	"gitlab.alibaba-inc.com/amap-aos-go/modules/gin/middleware"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	app "github.com/venusforest2013/config/application"
 	"net/http/pprof"
 	"os"
 )
@@ -51,10 +50,6 @@ func (r *Router) Controllers() map[string]Controller {
 }
 
 func (r *Router) configure(cfg *app.Config) error {
-
-	if cfg.Bool("eagleeye_enabled", false) {
-		r.Engine.Use(middleware.EagleEyeTrace())
-	}
 
 	if cfg.Bool("pprof_enabled", false) {
 		r.pprof(r.Engine.Group(cfg.Str("pprof_path", "/debug/pprof")))
